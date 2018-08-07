@@ -110,6 +110,9 @@ class NERModel(Model):
                         # [features, labels]. This makes expanding tuples into arguments (* operator) handy
 
             ### YOUR CODE HERE (2-3 lines)
+            for i, (train_x,train_y, train_mask) in enumerate(minibatches(train_examples, batch_size=self.config.batch_size)):
+                loss = self.train_on_batch(sess, train_x, train_y, train_mask)
+                #prog.update(i+1, [("train_loss", loss)])
 
             ### END YOUR CODE
 
